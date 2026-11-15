@@ -1,0 +1,22 @@
+
+name: CI - NexVarejo
+
+on:
+  push:
+    branches: [main, desenvolvimento]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verificacao:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+
+      - name: Verificar README
+        run: test -s README.md
+
+      - name: Confirmar sucesso
+        run: echo "Verificacao do NexVarejo concluida com sucesso!"
